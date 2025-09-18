@@ -2,16 +2,84 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    // Redirect after a short delay
-    window.onload = function () {
-      window.location.href = "https://sites.google.com/view/benchfiles/index";
-    };
-  </script>
+  <title>Login - BenchFiles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 95%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .logout {
+      margin-top: 15px;
+      color: red;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to BenchFiles...</p>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Log In</button>
+    <p id="logout" class="logout" onclick="logout()">Log Out</p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Simple check (you can change these credentials)
+      if (user === "admin" && pass === "1234") {
+        alert("Login successful!");
+        document.getElementById("logout").style.display = "block";
+
+        // Redirect after login
+        window.location.href = "https://sites.google.com/view/benchfiles/index";
+      } else {
+        alert("Invalid username or password!");
+      }
+    }
+
+    function logout() {
+      alert("You have logged out!");
+      document.getElementById("logout").style.display = "none";
+    }
+  </script>
 </body>
 </html>
-
